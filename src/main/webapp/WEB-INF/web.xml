@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>GymMemberManagementWebApp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+  	<param-name>mysqldrivername</param-name>
+  	<param-value>com.mysql.cj.jdbc.Driver</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>dbUrl</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/gymproject</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>username</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>password</param-name>
+  	<param-value>DeepGar2812#*</param-value>
+  </context-param>
+  
+  <servlet>
+  	<servlet-name>AddMember</servlet-name>
+  	<servlet-class>com.main.AddMember</servlet-class>
+  	
+  	<init-param>
+  		<param-name>info</param-name>
+  		<param-value>This is servlet to add members to the gym members database.</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>AddMember</servlet-name>
+  	<url-pattern>/addmember</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ViewMember</servlet-name>
+  	<servlet-class>com.main.ViewMember</servlet-class>
+  	
+  	<init-param>
+  		<param-name>info</param-name>
+  		<param-value>This is servlet to view member from the gym members database.</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ViewMember</servlet-name>
+  	<url-pattern>/viewmember</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ViewMembers</servlet-name>
+  	<servlet-class>com.main.ViewMembersAll</servlet-class>
+  	
+  	<init-param>
+  		<param-name>info</param-name>
+  		<param-value>This is servlet to view all member from the gym members database.</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ViewMembers</servlet-name>
+  	<url-pattern>/viewmembers</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DeleteMember</servlet-name>
+  	<servlet-class>com.main.DeleteMember</servlet-class>
+  	
+  	<init-param>
+  		<param-name>info</param-name>
+  		<param-value>This is servlet to delete member from the gym members database.</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteMember</servlet-name>
+  	<url-pattern>/deletemember</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>LoginAdmin</servlet-name>
+  	<servlet-class>com.main.Login</servlet-class>
+  	
+  	<init-param>
+  		<param-name>info</param-name>
+  		<param-value>This is servlet to login for the gym members database check.</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>LoginAdmin</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>LogoutAdmin</servlet-name>
+  	<servlet-class>com.main.Logout</servlet-class>
+  	
+  	<init-param>
+  		<param-name>info</param-name>
+  		<param-value>This is servlet to logout.</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>LogoutAdmin</servlet-name>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<filter-name>IsLoginFilter</filter-name>
+  	<filter-class>com.filters.IsLoginFilter</filter-class>
+  	
+  	<init-param>
+  		<param-name>info</param-name>
+  		<param-value>This is filter applied for authenticate the user</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>IsLoginFilter</filter-name>
+  	<url-pattern>/deletemember</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>IsLoginFilter</filter-name>
+  	<url-pattern>/viewmember</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>IsLoginFilter</filter-name>
+  	<url-pattern>/viewmembers</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>IsLoginFilter</filter-name>
+  	<url-pattern>/addmember</url-pattern>
+  </filter-mapping>
+</web-app>

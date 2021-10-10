@@ -1,0 +1,10 @@
+body{
+	margin : 0px;
+	padding : 0px;
+}
+
+.loginform{
+	margin-top : 20px;
+	padding:10px;
+	border : 1px solid black;
+}
