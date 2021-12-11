@@ -4,7 +4,7 @@
 -: Java
 -: Servlet
 -: JSP
--: MySql
+-: Sql
 -: JDBC
 -: Frontend (Bootstrap)
 
